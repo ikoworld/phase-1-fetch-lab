@@ -1,6 +1,11 @@
+// index.js
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
+  return fetch('https://anapioficeandfire.com/api/books') // Return the fetch promise
+    .then(response => response.json())
+    .then(books => {
+      renderBooks(books); // Call the renderBooks function inside the promise chain
+    })
+
 }
 
 function renderBooks(books) {
@@ -13,5 +18,6 @@ function renderBooks(books) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  fetchBooks();
+  fetchBooks(); // Just call fetchBooks without chaining here
 });
+
